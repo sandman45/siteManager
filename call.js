@@ -14,6 +14,14 @@ $(document).ready(function(){
     $('#getCustomers').click(function(){
 	testDB('getCustomers',null);
     });
+	// $('#showAddCustomer').click(function(){
+ //       $('#myModalLabel').html('Add Site');
+	// $('#editSite').hide();
+	// $('#addSite').show();
+	// $('#myModal').show();
+ //    });
+
+
     $('#showAddSite').click(function(){
        $('#myModalLabel').html('Add Site');
 	$('#editSite').hide();
@@ -139,6 +147,26 @@ function createDataGrid(data){
 	$('#siteUrl').val(url);
 	$('#editSite').show();
 	$('#addSite').hide();
+
+
+
+    });
+
+    //handle edit click
+    $("a[name='addCust']").click(function(e){
+	e.preventDefault();
+	var val = $(e.currentTarget).data('val');
+	//var name = $(e.currentTarget).data('name');
+	//var url = $(e.currentTarget).data('url');
+	data = {id:val,url:url,name:name};
+	$('#formID').val(val);
+	$('#custModal').modal('show');
+	//change label to edit
+	$('#myModalLabel').html('Add Customer');
+	//$('#siteName').val(name);
+	//$('#siteUrl').val(url);
+	//$('#editSite').show();
+	//$('#addSite').hide();
 
 
 
