@@ -158,7 +158,7 @@ function createDataGrid(data){
 	var val = $(e.currentTarget).data('val');
 	//var name = $(e.currentTarget).data('name');
 	//var url = $(e.currentTarget).data('url');
-	data = {id:val,url:url,name:name};
+	data = {id:val};//,url:url,name:name};
 	$('#formID').val(val);
 	$('#custModal').modal('show');
 	//change label to edit
