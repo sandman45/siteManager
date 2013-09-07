@@ -26,6 +26,7 @@ $(document).ready(function(){
 		    last:$('#lastName').val(),
 		    address:$('#address').val(),
 		    phone:$('#phone').val(),
+		    email:$('#email').val(),
 		    siteid:$('#siteID').val(),
 		    sourceip:12
 		    };
