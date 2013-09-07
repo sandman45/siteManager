@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     _self = this;
     var globData = {};
@@ -155,21 +154,10 @@ function createDataGrid(data){
     //handle edit click
     $("a[name='addCust']").click(function(e){
 	e.preventDefault();
-	var val = $(e.currentTarget).data('val');
-	//var name = $(e.currentTarget).data('name');
-	//var url = $(e.currentTarget).data('url');
-	data = {id:val};//,url:url,name:name};
-	$('#formID').val(val);
+	var siteID = $(e.currentTarget).data('val');
+	$('#formID').val(siteID);
 	$('#custModal').modal('show');
-	//change label to edit
 	$('#myModalLabel').html('Add Customer');
-	//$('#siteName').val(name);
-	//$('#siteUrl').val(url);
-	//$('#editSite').show();
-	//$('#addSite').hide();
-
-
-
     });
 
 
