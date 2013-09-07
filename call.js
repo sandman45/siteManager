@@ -26,8 +26,8 @@ $(document).ready(function(){
 		    lastName:$('#lastName').val(),
 		    address:$('#address').val(),
 		    phone:$('#phone').val(),
-		    siteID:$('#siteID').val(),
-		    sourceIP:$('#sourceIP').val()
+		    siteid:$('#siteID').val(),
+		    sourceip:$('#sourceIP').val()
 		    };
         testDB('addCustomer',data);
 
