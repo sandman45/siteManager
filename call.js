@@ -2,10 +2,10 @@ $(document).ready(function(){
     _self = this;
     var globData = {};
     $('#sm').click(function(){
-	window.location.href = "http://184.22.119.250/index.html";
+	window.location.href = "./index.html";
     });
     $('#home').click(function(){
-	window.location.href = "http://184.22.119.250/index.html";
+	window.location.href = "./index.html";
     });
     $('#getSites').click(function(){
 	testDB('getSites',null);
