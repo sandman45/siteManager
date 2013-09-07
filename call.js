@@ -27,7 +27,7 @@ $(document).ready(function(){
 		    address:$('#address').val(),
 		    phone:$('#phone').val(),
 		    siteid:$('#siteID').val(),
-		    sourceip:$('#sourceIP').val(12)
+		    sourceip:12
 		    };
         testDB('addCustomer',data);
 
