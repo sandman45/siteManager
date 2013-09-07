@@ -13,13 +13,6 @@ $(document).ready(function(){
     $('#getCustomers').click(function(){
 	testDB('getCustomers',null);
     });
-	// $('#showAddCustomer').click(function(){
- //       $('#myModalLabel').html('Add Site');
-	// $('#editSite').hide();
-	// $('#addSite').show();
-	// $('#myModal').show();
- //    });
-
 
     $('#showAddSite').click(function(){
        $('#myModalLabel').html('Add Site');
@@ -27,6 +20,20 @@ $(document).ready(function(){
 	$('#addSite').show();
 	$('#myModal').show();
     });
+    
+    $('#addCustomer').click(function(){
+	var data = {firstName:$('#firstName').val(),
+		    lastName:$('#lastName').val(),
+		    address:$('#address').val(),
+		    phone:$('#phone').val(),
+		    sourceIP:$('#siteID').val(),
+		    siteID:$('#sourceIP').val()
+		    };
+        testDB('addCustomer',data);
+
+    });
+    
+    
     $('#addSite').click(function(){
 	var data = {name:$('#siteName').val(),url:$('#siteUrl').val()};
        testDB('addSite',data);
