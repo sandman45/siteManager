@@ -39,7 +39,7 @@ switch ($queryCheck) {
     case 'addCustomer':
         include "tool.php";
         $query = "INSERT INTO customers (first,last,address,phone,email,sourceip,id,sitesid)".
-                   " VALUES (".$queryData[first].",".$queryData[last].",".$queryData[address].",".$queryData[phone].",".$queryData[email].",".$queryData[sourceip].",".$guid.",".$queryData[siteid]."); ";
+                   " VALUES ('".$queryData[first]."','".$queryData[last]."','".$queryData[address]."','".$queryData[phone]."','".$queryData[email]."','".$queryData[sourceip]."','".$guid."','".$queryData[siteid]."'); ";
         break;
     case 'delSite':
         $query = "UPDATE sites SET del = '1' WHERE id = '".$queryData[id]."';";
