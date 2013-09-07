@@ -162,7 +162,7 @@ function createDataGrid(data){
     $("a[name='addCust']").click(function(e){
 	e.preventDefault();
 	var siteID = $(e.currentTarget).data('val');
-	$('#formID').val(siteID);
+	$('#siteID').val(siteID);
 	$('#custModal').modal('show');
 	$('#myModalLabel').html('Add Customer');
     });
