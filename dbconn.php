@@ -28,7 +28,7 @@ switch ($queryCheck) {
         $query = "select * from sites s, customers c where s.id = c.websiteid;";
          break;
     case 'addSite':
-         include "tool.php";
+        include "tool.php";
         $query = "INSERT INTO sites (name,url,id,del)".
                    " VALUES ('".$queryData[name]."','".$queryData[url]."','".$guid."',0); ";
         break;
@@ -36,10 +36,10 @@ switch ($queryCheck) {
         $query = "UPDATE sites SET name = '".$queryData[name]."',url = '".$queryData[url]."',del = 0 WHERE id = '".$queryData[id]."';";
         break;
 
-case 'addCustomer':
-         include "tool.php";
+    case 'addCustomer':
+        include "tool.php";
         $query = "INSERT INTO customers (first,last,address,phone,email,sourceip,id,sitesid)".
-                   " VALUES (".$queryData[first].",".$queryData[last].",".$queryData[address].",".$queryData[phone].",".$queryData[email].",".$queryData[sourceip].",".$guid.",".$queryData[sitesid]."); ";
+                   " VALUES (".$queryData[first].",".$queryData[last].",".$queryData[address].",".$queryData[phone].",".$queryData[email].",".$queryData[sourceip].",".$guid.",".$queryData[siteid]."); ";
         break;
     case 'delSite':
         $query = "UPDATE sites SET del = '1' WHERE id = '".$queryData[id]."';";
