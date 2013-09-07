@@ -22,8 +22,8 @@ $(document).ready(function(){
     });
     
     $('#addCustomer').click(function(){
-	var data = {firstName:$('#firstName').val(),
-		    lastName:$('#lastName').val(),
+	var data = {first:$('#firstName').val(),
+		    last:$('#lastName').val(),
 		    address:$('#address').val(),
 		    phone:$('#phone').val(),
 		    siteid:$('#siteID').val(),
