@@ -65,7 +65,7 @@ if($queryCheck == 'getSites' || $queryCheck == 'getCustomers'){
         }
         print json_encode($resp);
 
-}else if($queryCheck == 'addSite' || $queryCheck == 'updateSite'){
+}else if($queryCheck == 'addSite' || $queryCheck == 'updateSite' || $queryCheck == 'addCustomer'){
         $result = mysql_query($query, $conn);
         $resp = new stdClass();
         $resp->success = false;
