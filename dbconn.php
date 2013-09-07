@@ -68,7 +68,14 @@ if($queryCheck == 'getSites' || $queryCheck == 'getCustomers'){
 }else if($queryCheck == 'addSite' || $queryCheck == 'updateSite' || $queryCheck == 'addCustomer'){
         $result = mysql_query($query, $conn);
         $resp = new stdClass();
-        $resp->success = false;
+        if($queryCheck == 'addCustomer'){
+            $resp->success = $query;
+            $resp->type = $queryCheck;
+            $resp->conn = $conn;
+        }else{
+            $resp->success = false;
+        }
+        
         if($result) {
                 $resp->type = $queryCheck;
                 $resp->success = true;
