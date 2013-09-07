@@ -93,6 +93,8 @@ function handleResults(results){
 			testDB('getSites',null);
 		break;
 		case 'addCustomer' :
+			$('#custModal').modal('hide');
+			testDB('getSites',null);
 		break;
 		case 'getCustomersBySite' :
 			createDataGrid(results);
