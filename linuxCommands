@@ -1,0 +1,4 @@
+#Handy sql commands
+
+#backup/dump database
+mysqldump -h localhost -u [MySQL user, e.g. root] -c -p[password] --add-drop-table --add-locks --all --quick --lock-tables [name of the database] > sqldump.sql
