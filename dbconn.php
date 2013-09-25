@@ -2,7 +2,7 @@
 
 include_once('myClass.php');
 
-$dbhost = "localhost";
+$dbhost = "localhost";// http://184.22.119.250/
 $dbuser = "root";
 $dbpass = "yogidog88";
 $query = "";

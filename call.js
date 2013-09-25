@@ -78,10 +78,10 @@ $.ajax({
 function handleResults(results){
 	switch(results.type){
 		case 'getSites' :
-			createDataGrid(results.results);
+			createDataGrid(results.results,"sites");
 		break;
 		case 'getCustomers' :
-			createDataGrid(results.results);
+			createDataGrid(results.results,"sites");
 
 		break;
 		case 'delSite' :
@@ -97,7 +97,7 @@ function handleResults(results){
 			testDB('getSites',null);
 		break;
 		case 'getCustomersBySite' :
-			createDataGrid(results);
+			createDataGrid(results,"customers");
 		break;
 		case 'updateSite':
 			$('#myModal').modal('hide');
@@ -108,7 +108,7 @@ function handleResults(results){
 }
 
 
-function createDataGrid(data){
+function createDataGrid(data,type){
 	$('#dataGrid').html('');
 	//create header for the DataGrid
 	
@@ -126,50 +126,87 @@ function createDataGrid(data){
 		for(var item in data[row]){
 			$('#'+row).append("<td>"+data[row][item]+"</td>");
 		}
-		$('#'+row).append("<a href='#' name='addCust' data-val='"+data[row]['id']+"' title='addCust'><i class='icon-plus icon-gray'></i></a>&nbsp;");
+    if(type=="sites"){
+      $('#'+row).append("<a href='#' name='addCust' data-val='"+data[row]['id']+"' title='addCust'><i class='icon-plus icon-gray'></i></a>&nbsp;");
 
-		$('#'+row).append("<a href='#' name='editBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' data-url='"+data[row]['url']+"' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
+      $('#'+row).append("<a href='#' name='editBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' data-url='"+data[row]['url']+"' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
 
-		$('#'+row).append("<a href='#' name='deleteBtn' data-val='"+data[row]['id']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
+      $('#'+row).append("<a href='#' name='deleteBtn' data-val='"+data[row]['id']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
+    }else{
+      $('#'+row).append("<a href='#' name='editCustBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' data-url='"+data[row]['url']+"' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
+
+      $('#'+row).append("<a href='#' name='deleteCustBtn' data-val='"+data[row]['id']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
+    }
 	}
+  //handle delete click
+  $("a[name='deleteCustBtn']").click(function (e) {
+    e.preventDefault();
+    var val = $(e.currentTarget).data('val');
+    var data = {id: val};
+    $('#delSite').data('val', val);
+    //show delete modal
+    $('#deleteModal').modal('show');
+  });
+
+  //handle edit click
+  $("a[name='editCustBtn']").click(function (e) {
+    e.preventDefault();
+    var val = $(e.currentTarget).data('val');
+    var name = $(e.currentTarget).data('name');
+    var url = $(e.currentTarget).data('url');
+    data = {id: val, url: url, name: name};
+    $('#formID').val(val);
+    $('#custModal').modal('show');
+    //change label to edit
+    $('#myModalLabel').html('Edit :' + name);
+    $('#firstName').val(firstName);
+    $('#lastName').val(lastName);
+    $('#address').val(address);
+    $('#phone').val(phone);
+    $('#email').val(email);
+    $('#editCustomer').show();
+    $('#addCustomer').hide();
+  });
+
+
+
+
     //handle delete click
-    $("a[name='deleteBtn']").click(function(e){
-	e.preventDefault();
-	var val = $(e.currentTarget).data('val');
-	var data = {id:val};
-	$('#delSite').data('val',val);
-	//show delete modal
-	$('#deleteModal').modal('show');
-    });
-    //handle edit click
-    $("a[name='editBtn']").click(function(e){
-	e.preventDefault();
-	var val = $(e.currentTarget).data('val');
-	var name = $(e.currentTarget).data('name');
-	var url = $(e.currentTarget).data('url');
-	data = {id:val,url:url,name:name};
-	$('#formID').val(val);
-	$('#myModal').modal('show');
-	//change label to edit
-	$('#myModalLabel').html('Edit :' + name);
-	$('#siteName').val(name);
-	$('#siteUrl').val(url);
-	$('#editSite').show();
-	$('#addSite').hide();
+  $("a[name='deleteBtn']").click(function (e) {
+    e.preventDefault();
+    var val = $(e.currentTarget).data('val');
+    var data = {id: val};
+    $('#delSite').data('val', val);
+    //show delete modal
+    $('#deleteModal').modal('show');
+  });
+  //handle edit click
+  $("a[name='editBtn']").click(function (e) {
+    e.preventDefault();
+    var val = $(e.currentTarget).data('val');
+    var name = $(e.currentTarget).data('name');
+    var url = $(e.currentTarget).data('url');
+    data = {id: val, url: url, name: name};
+    $('#formID').val(val);
+    $('#myModal').modal('show');
+    //change label to edit
+    $('#myModalLabel').html('Edit :' + name);
+    $('#siteName').val(name);
+    $('#siteUrl').val(url);
+    $('#editSite').show();
+    $('#addSite').hide();
 
 
+  });
 
-    });
-
-    //handle edit click
-    $("a[name='addCust']").click(function(e){
-	e.preventDefault();
-	var siteID = $(e.currentTarget).data('val');
-	$('#siteID').val(siteID);
-	$('#custModal').modal('show');
-	$('#myModalLabel').html('Add Customer');
-    });
-
+  //handle edit click
+  $("a[name='addCust']").click(function (e) {
+    e.preventDefault();
+    var siteID = $(e.currentTarget).data('val');
+    $('#siteID').val(siteID);
+    $('#custModal').modal('show');
+    $('#myModalLabel').html('Add Customer');
+  });
 
 
 }
