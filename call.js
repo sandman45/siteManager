@@ -114,6 +114,7 @@ function createDataGrid(data,type){
 	
 	$('#dataGrid').append("<thead>")
 	for(var item in data[0]){
+    if(item != "id" || item != "sitesid")
 		$('#dataGrid').append("<th>"+item.toUpperCase()+"</th>");
 	}
 	$('#dataGrid').append("<th></th>");
