@@ -126,7 +126,9 @@ function createDataGrid(data,type){
 	for(var row in data){
 		$('#dataGrid').append("<tr id="+row+">");
 		for(var item in data[row]){
+			if((item != "id" & item != "sitesid" & item != "del") || (item != "id" & item != "sitesid" & item != "del")){
 			$('#'+row).append("<td>"+data[row][item]+"</td>");
+			}
 		}
     if(type=="sites"){
       $('#'+row).append("<a href='#' name='addCust' data-val='"+data[row]['id']+"' title='addCust'><i class='icon-plus icon-gray'></i></a>&nbsp;");
