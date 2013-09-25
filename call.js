@@ -131,21 +131,23 @@ function createDataGrid(data,type){
 
       $('#'+row).append("<a href='#' name='editBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' data-url='"+data[row]['url']+"' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
 
-      $('#'+row).append("<a href='#' name='deleteBtn' data-val='"+data[row]['id']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
+      $('#'+row).append("<a href='#' name='deleteBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
     }else{
-      $('#'+row).append("<a href='#' name='editCustBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['name']+"' data-url='"+data[row]['url']+"' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
+      $('#'+row).append("<a href='#' name='editCustBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['first']+" "+ data[row]['last']+ "' title='edit'><i class='icon-edit icon-gray'></i></a>&nbsp;");
 
-      $('#'+row).append("<a href='#' name='deleteCustBtn' data-val='"+data[row]['id']+"' title='delete'><i class='icon-remove icon-gray'></i></a>");
+      $('#'+row).append("<a href='#' name='deleteCustBtn' data-val='"+data[row]['id']+"' data-name='"+data[row]['first']+" "+ data[row]['last']+ "' title='delete'><i class='icon-remove icon-gray'></i></a>");
     }
 	}
   //handle delete click
   $("a[name='deleteCustBtn']").click(function (e) {
     e.preventDefault();
     var val = $(e.currentTarget).data('val');
+    var name = $(e.currentTarget).data('name');
     var data = {id: val};
     $('#delSite').data('val', val);
     //show delete modal
     $('#deleteModal').modal('show');
+    $('#delModal').html('Delete ' + name + ' ?');
   });
 
   //handle edit click
@@ -158,7 +160,7 @@ function createDataGrid(data,type){
     $('#formID').val(val);
     $('#custModal').modal('show');
     //change label to edit
-    $('#myModalLabel').html('Edit :' + name);
+    $('#custModalLabel').html('Edit :' + name);
     $('#firstName').val(firstName);
     $('#lastName').val(lastName);
     $('#address').val(address);
@@ -175,9 +177,11 @@ function createDataGrid(data,type){
   $("a[name='deleteBtn']").click(function (e) {
     e.preventDefault();
     var val = $(e.currentTarget).data('val');
+    var name = $(e.currentTarget).data('name');
     var data = {id: val};
     $('#delSite').data('val', val);
     //show delete modal
+    $('#delLabel').html('Delete ' +name+ ' ?');
     $('#deleteModal').modal('show');
   });
   //handle edit click
