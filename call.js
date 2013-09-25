@@ -81,7 +81,7 @@ function handleResults(results){
 			createDataGrid(results.results,"sites");
 		break;
 		case 'getCustomers' :
-			createDataGrid(results.results,"sites");
+			createDataGrid(results.results,"customers");
 
 		break;
 		case 'delSite' :
