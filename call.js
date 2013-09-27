@@ -94,6 +94,10 @@ function handleResults(results){
 			$('#deleteModal').modal('hide');
 			testDB('getSites',null);
 		break;
+		case 'delSite' :
+			$('#deleteModal').modal('hide');
+			testDB('getCustomers',null);
+		break;
 		case 'addSite' :
 			$('#myModal').modal('hide');
 			testDB('getSites',null);
