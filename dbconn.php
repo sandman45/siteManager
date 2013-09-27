@@ -45,7 +45,7 @@ switch ($queryCheck) {
         $query = "UPDATE sites SET del = '1' WHERE id = '".$queryData[id]."';";
         break;
     case 'delCustomer':
-        $query = "UPDATE customer SET del = '1' WHERE id = '".$queryData[id]."';";
+        $query = "UPDATE customers SET del = '1' WHERE id = '".$queryData[id]."';";
         break;
 
 }
