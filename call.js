@@ -164,7 +164,7 @@ function createDataGrid(data,type){
     $('#formID').val(val);
     $('#custModal').modal('show');
     //change label to edit
-    $('#custModalLabel').html('Edit :' + name);
+    $('#custModalLabel').html('Edit "' + name+'"');
     $('#firstName').val(firstName);
     $('#lastName').val(lastName);
     $('#address').val(address);
@@ -198,7 +198,7 @@ function createDataGrid(data,type){
     $('#formID').val(val);
     $('#myModal').modal('show');
     //change label to edit
-    $('#myModalLabel').html('Edit :' + name);
+    $('#myModalLabel').html('Edit "' + name+'"');
     $('#siteName').val(name);
     $('#siteUrl').val(url);
     $('#editSite').show();
