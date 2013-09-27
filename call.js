@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
     $('#delSite').click(function(){
     	var data = {id:$('#delSite').data('val')};
-       testDB('delSite',data);
+       
 	if(delType=='site'){
     		var data = {id:$('#delSite').data('val')};
 	        testDB('delSite',data);
