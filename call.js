@@ -157,7 +157,7 @@ function createDataGrid(data,type){
     $('#delSite').data('val', val);
     //show delete modal
     $('#deleteModal').modal('show');
-    $('#delModal').html('Delete "' + name + '" ?');
+    $('#delLabel').html('Delete "' + name + '" ?');
     delType = 'customers';
   });
 
