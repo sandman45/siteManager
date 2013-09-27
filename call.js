@@ -151,7 +151,7 @@ function createDataGrid(data,type){
     $('#delSite').data('val', val);
     //show delete modal
     $('#deleteModal').modal('show');
-    $('#delModal').html('Delete ' + name + ' ?');
+    $('#delModal').html('Delete "' + name + '" ?');
   });
 
   //handle edit click
@@ -185,7 +185,7 @@ function createDataGrid(data,type){
     var data = {id: val};
     $('#delSite').data('val', val);
     //show delete modal
-    $('#delLabel').html('Delete ' +name+ ' ?');
+    $('#delLabel').html('Delete "' +name+ '" ?');
     $('#deleteModal').modal('show');
   });
   //handle edit click
