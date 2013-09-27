@@ -75,7 +75,7 @@ if($queryCheck == 'getSites' || $queryCheck == 'getCustomers'){
                 $resp->success = true;
         }
         print json_encode($resp);
-}else if($queryCheck == 'delSite'){
+}else if($queryCheck == 'delSite'||$queryCheck == 'delCustomer'){
         $result = mysql_query($query, $conn);
         $resp = new stdClass();
         $resp->success = false;
