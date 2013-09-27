@@ -43,7 +43,7 @@ $(document).ready(function(){
     $('#delSite').click(function(){
     	var data = {id:$('#delSite').data('val')};
        testDB('delSite',data);
-	if(){
+	if(delType=='site'){
     		var data = {id:$('#delSite').data('val')};
 	        testDB('delSite',data);
     	}else{
@@ -158,6 +158,7 @@ function createDataGrid(data,type){
     //show delete modal
     $('#deleteModal').modal('show');
     $('#delModal').html('Delete "' + name + '" ?');
+    delType = 'customers';
   });
 
   //handle edit click
@@ -193,6 +194,7 @@ function createDataGrid(data,type){
     //show delete modal
     $('#delLabel').html('Delete "' +name+ '" ?');
     $('#deleteModal').modal('show');
+    delType = 'sites';
   });
   //handle edit click
   $("a[name='editBtn']").click(function (e) {
