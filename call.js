@@ -41,9 +41,15 @@ $(document).ready(function(){
 
     });
     $('#delSite').click(function(){
-	var data = {id:$('#delSite').data('val')};
+    	var data = {id:$('#delSite').data('val')};
        testDB('delSite',data);
-
+	if(){
+    		var data = {id:$('#delSite').data('val')};
+	        testDB('delSite',data);
+    	}else{
+		var data = {id:$('#delSite').data('val')};
+		testDB('delCustomer',data);
+    	}
     });
 
  //handle edit click
