@@ -21,11 +21,11 @@ switch ($queryCheck) {
         $query = "select name,url,id from sites where del=0;";
         break;
     case 'getCustomers':
-        $query = "select * from customers;";
+        $query = "select * from customers where del=0;";
         break;
     case 'getCustomersBySite':
          //queryData;
-        $query = "select * from sites s, customers c where s.id = c.websiteid;";
+        $query = "select * from sites s, customers c where s.id = c.websiteid and del = 0;";
          break;
     case 'addSite':
         include "tool.php";
