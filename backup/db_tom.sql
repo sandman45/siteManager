@@ -1,0 +1,84 @@
+-- MySQL dump 10.13  Distrib 5.1.67, for redhat-linux-gnu (i386)
+--
+-- Host: localhost    Database: DB_TOM
+-- ------------------------------------------------------
+-- Server version	5.1.67
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customers` (
+  `first` varchar(255) DEFAULT NULL,
+  `last` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `sourceip` varchar(255) DEFAULT NULL,
+  `id` varchar(32) NOT NULL DEFAULT '',
+  `sitesid` varchar(255) DEFAULT NULL,
+  `del` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES ('matt','sanders','9300 S redwood rd West Jordan Utah 84088','801-931-7210','msanders45@gmail.com','127.0.0.1','1','1',0),('test','test','test','test','test','12','E80C060012B5D6354EE0AC760850ECA4','38097442B067019A20F0646874F6DDA7',1),('','',NULL,'','','','8A5488091FD1AFBC834B2E1A4F1128AC','',1),('','',NULL,'','','','9E98118989AB1CADB04DA822BF724915','',1),('','',NULL,'','','','DD3B3CCA0353A4BA9893F67D7BCCEB84','',1),('','',NULL,'','','','DA2B99B7C32F254BD0BED80E49232F0D','',1),('','',NULL,'','','','63BCC63CCD5C195B9A0719F68C154A3B','',1),('','',NULL,'','','','B484B919E18FCAFF866B2B63CF429BAD','',1),('Matthew','Sanders',NULL,'8016902573','msanders45@gmail.com','65.181.58.254','4E6CC1C4D20ADBA34F2E5C91B757AB70','DF4BA04E9642E338E0F96086750AA34F',1),('Matthew','Sanders',NULL,'8016902573','msanders45@gmail.com','65.181.58.254','60588FB022E7FE1171AA2CFB32F09F50','DF4BA04E9642E338E0F96086750AA34F',0),('Grom','Hellscream',NULL,'8016902573','msanders45@gmail.com','65.181.58.254','CEB3BB974658A7A099533B1C0848A506','DF4BA04E9642E338E0F96086750AA34F',0),('Libby','Sanders',NULL,'801-916-8656','elizabethsanders03@gmail.com','24.2.67.206','7F1D90B7F1657B50FFD482267A391272','DF4BA04E9642E338E0F96086750AA34F',0),('thomas','sanders',NULL,'385-201-3999','tomspitfire@aol.com','76.27.101.75','5D5CD0EEE58BD01037808C49348BBE72','DF4BA04E9642E338E0F96086750AA34F',0),('thomas','sanders',NULL,'385-201-3999','tomspitfire@aol.com','76.27.101.75','AD72EF7A609AA37E1862612DE3DEF63D','DF4BA04E9642E338E0F96086750AA34F',0),('','',NULL,'','','24.2.67.206','1949F01E91F969647984276CAEF4D6C6','DF4BA04E9642E338E0F96086750AA34F',0);
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sites`
+--
+
+DROP TABLE IF EXISTS `sites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sites` (
+  `name` char(255) DEFAULT NULL,
+  `url` char(255) DEFAULT NULL,
+  `id` varchar(32) NOT NULL DEFAULT '',
+  `del` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sites`
+--
+
+LOCK TABLES `sites` WRITE;
+/*!40000 ALTER TABLE `sites` DISABLE KEYS */;
+INSERT INTO `sites` VALUES ('Toms Website','http://199.71.212.228/auto/auto.html','DF4BA04E9642E338E0F96086750AA34F',0),('MSN Site','http://www.msn.com','38097442B067019A20F0646874F6DDA7',0),('auto insurance','http://auto.freeinfodeals.com/','2BFB2D0D2B7A449E64B07B29E5F328B2',0);
+/*!40000 ALTER TABLE `sites` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-01-12  7:29:03
